@@ -1,6 +1,7 @@
 import React from 'react';
 import TournamentForm from '../../components/TournamentForm';
 import TournamentCard from '../../components/TournamentCard';
+import Navbar from "../../components/Navbar";
 
 const mockTournaments = [
   { id: 1, name: 'Torneo Valorant', date: '2025-08-01', description: 'Competencia de Valorant para equipos de 5.' },
@@ -9,7 +10,9 @@ const mockTournaments = [
 
 export default function AdminPage() {
   return (
-    <div className="min-h-screen items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 text-white flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 text-white flex flex-col">
+      <Navbar />
+      <main className="flex flex-1 flex-col items-center justify-center px-4 py-16">
       <h2 className="text-2xl font-bold mb-6">Panel de Administrador</h2>
       <TournamentForm />
       <h3 className="text-xl font-semibold mt-10 mb-4">Torneos Creados</h3>
@@ -18,6 +21,7 @@ export default function AdminPage() {
           <TournamentCard key={tournament.id} tournament={tournament} />
         ))}
       </div>
+    </main>
     </div>
   );
 }
